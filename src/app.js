@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 const app = express();
-
+import { ErrorHandler } from "./middlewares/ErrorHandler.middleware.js";
 app.use(
   express.json({
     limit: "16kb",
@@ -35,4 +35,16 @@ app.use("/api/v1", courseRouter);
 import userRouter from "./routes/user.route.js";
 app.use("/api/v1", userRouter);
 
+// importing payment routes
+
+import paymentRouter from "./routes/payment.route.js";
+app.use("/api/v1", paymentRouter);
+
+// import other routes
+
+import otherRouter from "./routes/other.route.js";
+app.use("/api/v1", otherRouter);
+
 export default app;
+
+app.use(ErrorHandler);

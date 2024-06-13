@@ -1,1 +1,1 @@
-export const db_name = "user_6_pack";
+export const db_name = "ed-tech-app";
